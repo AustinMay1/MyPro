@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'MyPro_PMS',
     'Company',
     'crispy_forms',
-    
+    'widget_tweaks',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
