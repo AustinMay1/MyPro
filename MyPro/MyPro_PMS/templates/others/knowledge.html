@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Progress Tracker
+  File System
 {% endblock %}
 
 {% block content %}
@@ -25,10 +25,10 @@
     {% endif %}
 
     <div class="container-fluid">
-      <h3>Progress Report</h3><br />
+      <h3>File System</h3><br />
       <div class="card shadow mb-4">
 
-        <a href="{% url 'add_question' %}" class="btn btn-dark">Add Question</a>
+        <a href="{% url 'add_knowledge' %}" class="btn btn-primary">Add Files</a>
 
         <div class="card-body">
           <div class="table-responsive">
@@ -36,19 +36,20 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th style="width: 800px;">Title</th>
+                  <th>Title</th>
+                  <th>Platform</th>
                   <th>Action</th>
-                  <th>Comment(s)</th>
                 </tr>
               </thead>
               <tbody>
-                {% for que in questions %}
+                {% for know in knowledge %}
                   <tr>
-                    <td>{{ que.id }}</td>
-                    <td>{{ que }}</td>
+                    <td>{{ know.id }}</td>
+                    <td>{{ know }}</td>
+                    <td>{{ know.platform }}</td>
                     <td>
-                      <a href = '{% url "edit_question" ques_id=que.id %}' class="btn btn-primary">Edit</a>
-                      <a href = '{% url "delete_question" ques_id=que.id %}' class="btn btn-danger">Delete</a>
+                      <a href = '{% url "edit_knowledge" know_id=know.id %}' class="btn btn-primary">Edit</a>
+                      <a href = '{% url "delete_knowledge" know_id=know.id %}' class="btn btn-danger">Delete</a>
                     </td>
                   </tr>
                 {% endfor %}

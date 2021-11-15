@@ -50,7 +50,7 @@ class Profile(models.Model):
     leaves = models.IntegerField(default = 1)
     photo = models.FileField(null=True, blank=True)
 
-   # @receiver(post_save, sender=User)
+    #@receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
@@ -126,6 +126,7 @@ class Knowledge(models.Model):
 
 class PerformanceQuestion(models.Model):
     question = models.CharField(max_length = 500)
+    
 
     class Meta:
         verbose_name = 'Performance Question'
@@ -146,3 +147,12 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
+
+
+class Branch(models.Model):
+    branch_name = models.CharField(max_length = 255)
+
+
+    class Meta:
+        verbose_name = "Branch"
+        verbose_name_plural = "Branches"
